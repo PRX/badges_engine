@@ -4,7 +4,7 @@ describe BadgesEngine::BadgesController do
   describe "routing" do
 
     before do
-      BadgesEngine::Engine.load_engine_routes
+      BadgesEngine::Engine.load_engine_routes('badges')
     end
 
     it "routes to #index" do

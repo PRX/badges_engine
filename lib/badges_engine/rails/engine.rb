@@ -13,16 +13,12 @@ module BadgesEngine
       # 
       # @author Jason Hamilton (jhamilton@greatherorift.com)
       # @author Matthew Ratzloff (matt@urbaninfluence.com)
-      def load_engine_routes(engine_symbol = nil)
-        name = if engine_symbol
-          engine_symbol.to_s.camelize
-        else
-          # No engine provided, so presume the current engine is the one to load
-          self.class.name.split("::").first.split("(").last
-        end
+      def load_engine_routes(path=nil)
+        name = self.class.name.split("::").first.split("(").last
         
         engine = ("#{name}::Engine").constantize
         engine_name = engine.engine_name
+        engine_path = path || engine_name.underscore
         engine_module = name.underscore
         
         # Append the routes for this module to the existing routes
@@ -37,8 +33,7 @@ module BadgesEngine
           
           engine.routes.routes.each do |route|
             # Call the method by hand based on the symbol
-            path = "/#{engine_name.underscore}#{route.path}"
-            # puts path
+            path = "/#{engine_path}#{route.path}"
             verb = route.verb.to_s.downcase.to_sym
             requirements = route.requirements
             if path_helper = named_routes.key(route)
@@ -51,7 +46,7 @@ module BadgesEngine
             else
             end
             if respond_to?(verb)
-              # puts "#{verb}, path:#{path}, requirements:#{requirements.inspect}"
+              # puts "send: verb:#{verb}, path:#{path}, requirements:#{requirements.inspect}"
               send(verb, path, requirements) 
             end
           end

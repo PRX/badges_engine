@@ -3,7 +3,7 @@ require 'jquery-rails'
 module BadgesEngine
   class Engine < Rails::Engine
     isolate_namespace BadgesEngine
-    engine_name 'badges'
+    engine_name 'badges_engine'
     
     ActiveRecord::Base.include_root_in_json = false
     

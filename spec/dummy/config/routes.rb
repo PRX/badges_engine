@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  mount BadgesEngine::Engine => '/badges'
 
-  resources :issuers
+  mount BadgesEngine::Engine => '/badges', :as => 'badges'
 
   resources :users
 
