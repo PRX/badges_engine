@@ -17,16 +17,18 @@ Start by adding the gem to your Gemfile, then do the usual routine, and install 
 
 Next there are migrations to copy over:
 
-    rake badges:install:migrations
+    rake badges_engine:install:migrations
 
 That will copy the migrations over to support saving the badges and assertions.
 
 Next you can run the install rails generator.
 This will mount the engine in your routes.rb, and add 'config/initializers/badges_engine.rb'
 
-    rails generate badges:install
+    rails generate badges_engine:install
 
 Next you should edit 'config/initializers/badges_engine.rb'.
+
+This sets up the initial values you need for the issuer, and specifies the User class for mixins.
 
 
 Author(s)

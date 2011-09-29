@@ -8,7 +8,7 @@ class BadgesEngine::InstallGenerator < Rails::Generators::Base
   
   desc "Add the mount for the engine routes"
   def mount_routes
-    route("mount BadgesEngine::Engine => '/badges'")
+    route("mount BadgesEngine::Engine => '/badges', :as => 'badges'")
   end
 
 end
