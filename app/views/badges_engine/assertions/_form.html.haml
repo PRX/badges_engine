@@ -1,0 +1,25 @@
+= form_for @assertion do |f|
+  -if @assertion.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@assertion.errors.count, "error")} prohibited this assertion from being saved:"
+      %ul
+        - @assertion.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .field
+    = f.label :badge_id
+    = f.number_field :badge_id
+  .field
+    = f.label :evidence
+    = f.text_field :evidence
+  .field
+    = f.label :expires
+    = f.date_select :expires
+  .field
+    = f.label :issued_on
+    = f.date_select :issued_on
+  .actions
+    = f.submit 'Save'

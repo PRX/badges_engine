@@ -1,0 +1,29 @@
+%h1 Listing assertions
+
+%table
+  %tr
+    %th User
+    %th Badge
+    %th Recipient
+    %th Evidence
+    %th Expires
+    %th Issued on
+    %th
+    %th
+    %th
+
+  - @assertions.each do |assertion|
+    %tr
+      %td= assertion.user_id
+      %td= assertion.badge_id
+      %td= assertion.recipient
+      %td= assertion.evidence
+      %td= assertion.expires
+      %td= assertion.issued_on
+      %td= link_to 'Show', assertion
+      %td= link_to 'Edit', edit_assertion_path(assertion)
+      %td= link_to 'Destroy', assertion, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Assertion', new_assertion_path

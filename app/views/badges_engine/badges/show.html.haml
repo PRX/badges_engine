@@ -1,0 +1,25 @@
+%p#notice= notice
+
+%p
+  %b Issuer:
+  = @badge.issuer_id
+%p
+  %b Version:
+  = @badge.version
+%p
+  %b Name:
+  = @badge.name
+%p
+  %b Image:
+  = @badge.image
+  .image= image_tag(@badge.image)
+%p
+  %b Description:
+  = @badge.description
+%p
+  %b Criteria:
+  = @badge.criteria
+
+= link_to 'Edit', edit_badge_path(@badge)
+\|
+= link_to 'Back', badges_path

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  issuer_id: 1
+  version: MyString
+  name: MyString
+  image: MyString
+  description: MyString
+  criteria: MyString
+
+two:
+  issuer_id: 1
+  version: MyString
+  name: MyString
+  image: MyString
+  description: MyString
+  criteria: MyString

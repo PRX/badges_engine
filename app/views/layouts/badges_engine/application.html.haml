@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title My App
+    = stylesheet_link_tag 'badges_engine/application'
+    = javascript_include_tag 'badges_engine/application'
+    = csrf_meta_tags
+  %body
+    - flash.each do |name, msg|
+      = content_tag(:div, msg, id: "flash_#{name}", class: 'notice') if msg.is_a?(String)
+    = yield

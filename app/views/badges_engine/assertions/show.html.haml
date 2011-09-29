@@ -1,0 +1,26 @@
+%p
+  %b User:
+  = @assertion.user_id
+%p
+  %b Badge:
+  = @assertion.badge_id
+%p
+  %b Recipient:
+  = @assertion.recipient
+%p
+  %b Evidence:
+  = @assertion.evidence
+%p
+  %b Expires:
+  = @assertion.expires
+%p
+  %b Issued on:
+  = @assertion.issued_on
+
+%p
+  %b Baking Callback URL
+  = @assertion.baking_callback_url
+
+= link_to 'Edit', edit_assertion_path(@assertion)
+\|
+= link_to 'Back', assertions_path

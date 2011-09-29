@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  badge_id: 1
+  recipient: MyString
+  evidence: MyString
+  expires: 2011-09-24
+  issued_on: 2011-09-24
+
+two:
+  user_id: 1
+  badge_id: 1
+  recipient: MyString
+  evidence: MyString
+  expires: 2011-09-24
+  issued_on: 2011-09-24

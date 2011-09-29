@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title Dummy App
+    = stylesheet_link_tag :application
+    = javascript_include_tag :application
+    %script{:src=>"https://browserid.org/include.js", :type=>"text/javascript"}
+    = csrf_meta_tags
+  %body
+    - flash.each do |name, msg|
+      = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+    
+    - if logged_in?
+      = current_user.email
+      = button_to "Log out", session_path, :method=>:delete
+
+    - else
+      %a#browserid_button{:href=>"/"}
+        = image_tag 'sign_in.png'
+    
+      = form_tag session_path, :id=>:browserid_form do
+        = hidden_field_tag :browserid_assertion
+      
+      
+    = yield

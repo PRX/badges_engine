@@ -1,0 +1,8 @@
+Description:
+    Explain the generator
+
+Example:
+    rails generate badges_engine:initializer
+
+    This will create:
+        config/initializers/badges_engine.rb

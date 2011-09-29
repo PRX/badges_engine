@@ -1,0 +1,29 @@
+%h1 Listing badges
+
+%table
+  %tr
+    %th Issuer
+    %th Version
+    %th Name
+    %th Image
+    %th Description
+    %th Criteria
+    %th
+    %th
+    %th
+
+  - @badges.each do |badge|
+    %tr
+      %td= badge.issuer_id
+      %td= badge.version
+      %td= badge.name
+      %td= badge.image
+      %td= badge.description
+      %td= badge.criteria
+      %td= link_to 'Show', badge
+      %td= link_to 'Edit', edit_badge_path(badge)
+      %td= link_to 'Destroy', badge, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Badge', new_badge_path
